@@ -6,7 +6,6 @@ from rest_framework import routers
 router = routers.SimpleRouter()
 router.register('', views.CatsViewSet)
 
-
 urlpatterns = [
     path('', views.main, name='main'),
     path(r'api/', include(router.urls)),

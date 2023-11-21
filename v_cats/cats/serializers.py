@@ -8,7 +8,7 @@ class CatsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Cats
-        fields = '__all__'# ["name", "age", "breed", "hairiness", "user"]
+        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):

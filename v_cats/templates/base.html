@@ -4,22 +4,34 @@
 
 <head>
     <meta charset="UTF-8">
-
+{#    <link type="text/css" href="{% static 'chat/css/chat.css' %}" rel="stylesheet">#}
     <title>{% block title %} {% endblock %}</title>
     <link type="text/css" href="{% static "app/css/style.css" %}" rel="stylesheet">
 </head>
 
 <body>
-
         <ul class="menu-bar">
             <li> <a href="{% url "login" %}">Log-in </a></li>
-            <li> <a href="{% url "main" %}">Chat</a></li>
+            <li> <a href="{% url "room" %}">Chat</a></li>
             <li> <a href="/api/">Cats</a> </li>
         </ul>
 
         <div class="content">
         {% block content %} {% endblock %}
         </div>
+
+        <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+        {% block include_js %}
+        {% endblock %}
+        <script>
+            const csrftoken = Cookies.get('csrftoken');
+            document.addEventListener('DOMContentLoaded', (event) => {
+
+            {% block domready %}
+            {% endblock %}
+
+            })
+        </script>
 
 </body>
 
